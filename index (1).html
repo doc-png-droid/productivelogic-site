@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Productive Logic — International School Consulting & Professional Development</title>
+  <meta name="description" content="Productive Logic partners with international K–12 schools across Asia and beyond — from school startup to WASC accreditation, professional development, curriculum design, conference hosting, and leadership consulting." />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    /* ── Hero ── */
+    .hero {
+      min-height: 92vh;
+      display: flex;
+      align-items: center;
+      background: var(--warm-bg);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0; right: 0;
+      width: 42%;
+      height: 100%;
+      background: var(--accent);
+      opacity: 0.06;
+      clip-path: polygon(12% 0, 100% 0, 100% 100%, 0% 100%);
+    }
+    .hero-content { position: relative; z-index: 1; max-width: 820px; }
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.8rem;
+    }
+    .hero-eyebrow::before {
+      content: '';
+      display: block;
+      width: 2rem;
+      height: 1.5px;
+      background: var(--accent);
+    }
+    .hero h1 { margin-bottom: 1.5rem; color: var(--ink); }
+    .hero h1 em { font-style: italic; color: var(--accent); }
+    .hero-sub {
+      font-size: 1.1rem;
+      line-height: 1.75;
+      color: var(--slate);
+      margin-bottom: 2.5rem;
+      max-width: 64ch;
+    }
+    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .hero-stat-row {
+      display: flex;
+      gap: 3rem;
+      margin-top: 5rem;
+      padding-top: 3rem;
+      border-top: 1px solid var(--rule);
+      flex-wrap: wrap;
+    }
+    .hero-stat strong {
+      display: block;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.6rem;
+      font-weight: 600;
+      color: var(--ink);
+      line-height: 1;
+    }
+    .hero-stat span {
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--mid);
+    }
+
+    /* ── Services Grid ── */
+    .services-strip { background: var(--white); padding: 5rem 0; }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      background: var(--rule);
+      border: 1px solid var(--rule);
+      margin-top: 3.5rem;
+    }
+    .service-card {
+      background: var(--white);
+      padding: 2.2rem 1.8rem;
+      transition: background 0.22s;
+    }
+    .service-card:hover { background: var(--warm-bg); }
+    .service-icon {
+      width: 2.2rem;
+      height: 2.2rem;
+      background: var(--gold-lt);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.2rem;
+    }
+    .service-icon svg {
+      width: 0.9rem; height: 0.9rem;
+      stroke: var(--gold); fill: none;
+      stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+    }
+    .service-card h3 { font-size: 1.08rem; color: var(--ink); margin-bottom: 0.6rem; }
+    .service-card p  { font-size: 0.85rem; line-height: 1.65; color: var(--slate); }
+    .card-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      margin-top: 1rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      transition: gap 0.2s;
+    }
+    .card-link:hover { gap: 0.7rem; }
+
+    /* ── Why Strip ── */
+    .why-strip { background: var(--warm-bg); padding: 5rem 0; }
+    .why-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+    .why-text h2 { margin-bottom: 1.2rem; }
+    .why-text p  { margin-bottom: 1rem; }
+    .why-credentials {
+      list-style: none;
+      margin-top: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+    }
+    .why-credentials li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.85rem;
+      font-size: 0.88rem;
+      color: var(--slate);
+    }
+    .why-credentials li::before {
+      content: '';
+      flex-shrink: 0;
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--gold);
+      margin-top: 0.55rem;
+    }
+    .why-pull {
+      background: var(--accent);
+      color: var(--white);
+      padding: 3rem;
+      border-radius: 4px;
+      position: relative;
+    }
+    .why-pull::before {
+      content: '\201C';
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 6rem;
+      line-height: 0.7;
+      color: rgba(255,255,255,0.18);
+      position: absolute;
+      top: 1.5rem; left: 1.8rem;
+    }
+    .why-pull blockquote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.45rem;
+      font-style: italic;
+      line-height: 1.55;
+      color: var(--white);
+      position: relative;
+      z-index: 1;
+      margin-bottom: 1.5rem;
+    }
+    .why-pull cite {
+      font-size: 0.75rem;
+      font-style: normal;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.65);
+    }
+
+    /* ── Geography strip ── */
+    .geo-strip {
+      background: var(--white);
+      padding: 4rem 0;
+      border-top: 1px solid var(--rule);
+      border-bottom: 1px solid var(--rule);
+    }
+    .geo-inner {
+      display: flex;
+      align-items: center;
+      gap: 3rem;
+      flex-wrap: wrap;
+    }
+    .geo-label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gold);
+      flex-shrink: 0;
+    }
+    .geo-rule { width: 1px; height: 2rem; background: var(--rule); }
+    .geo-text {
+      font-size: 0.9rem;
+      color: var(--slate);
+      max-width: 70ch;
+    }
+    .geo-text strong { color: var(--ink); }
+
+    /* ── CTA Banner ── */
+    .cta-banner { background: var(--warm-dark); padding: 5rem 0; text-align: center; }
+    .cta-banner h2 { color: var(--white); margin-bottom: 1rem; }
+    .cta-banner p  { color: var(--mid); margin: 0 auto 2.5rem; font-size: 1rem; }
+
+    @media (max-width: 900px) {
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 768px) {
+      .hero { min-height: auto; padding: 4rem 0 3rem; }
+      .hero-stat-row { gap: 2rem; margin-top: 3rem; padding-top: 2rem; }
+      .services-grid { grid-template-columns: 1fr; }
+      .why-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+      .geo-rule { display: none; }
+    }
+  </style>
+</head>
+<body class="page-body">
+
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">Productive<span>Logic</span></a>
+      <button class="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+      <ul class="nav-links">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="what-we-do.html">What We Do</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="contact.html" class="nav-cta">Work With Us</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <span class="hero-eyebrow">International School Consulting — Asia &amp; Beyond</span>
+        <h1>Every Stage of an<br>International School's<br><em>Growth &amp; Excellence</em></h1>
+        <p class="hero-sub">
+          From launching a new school to earning accreditation, from developing faculty to hosting conferences — Productive Logic brings 26 years of on-the-ground international school experience to every engagement.
+        </p>
+        <div class="hero-actions">
+          <a href="what-we-do.html" class="btn btn-primary">Explore Our Services</a>
+          <a href="contact.html" class="btn btn-outline">Get in Touch</a>
+        </div>
+        <div class="hero-stat-row">
+          <div class="hero-stat"><strong>26</strong><span>Years International Education</span></div>
+          <div class="hero-stat"><strong>6</strong><span>Core Service Areas</span></div>
+          <div class="hero-stat"><strong>K–12</strong><span>All School Divisions</span></div>
+          <div class="hero-stat"><strong>WASC</strong><span>Visiting Team Leader</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="services-strip">
+    <div class="container">
+      <span class="section-label">What We Do</span>
+      <h2>Six Areas of Deep Practice</h2>
+
+      <div class="services-grid">
+
+        <div class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+          </div>
+          <h3>School Startup Consulting</h3>
+          <p>End-to-end support for founding teams building new international schools — from feasibility and structure to curriculum frameworks, hiring, and accreditation pathways from day one.</p>
+          <a href="what-we-do.html#startup" class="card-link">Learn more →</a>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+          </div>
+          <h3>WASC Accreditation</h3>
+          <p>Self-study preparation, visiting committee leadership, and post-visit action planning. Led by someone who has chaired WASC visiting teams at multiple international schools across Asia.</p>
+          <a href="what-we-do.html#wasc" class="card-link">Learn more →</a>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+          </div>
+          <h3>Curriculum &amp; Assessment</h3>
+          <p>Skills-based assessment framework design, curriculum mapping, and Science of Learning workshops for K–12 faculty teams moving beyond traditional grading.</p>
+          <a href="what-we-do.html#curriculum" class="card-link">Learn more →</a>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+          </div>
+          <h3>Professional Development</h3>
+          <p>In-service presentations, faculty coaching, and instructional delivery workshops designed specifically for international school educators across elementary, middle, and high school.</p>
+          <a href="what-we-do.html#pd" class="card-link">Learn more →</a>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </div>
+          <h3>Conference Design &amp; Hosting</h3>
+          <p>Full-service conference design, programming, and hosting for international school campuses in Asia and other regions — keynotes, breakout sessions, facilitation, and logistics consulting.</p>
+          <a href="what-we-do.html#conferences" class="card-link">Learn more →</a>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+          </div>
+          <h3>Administrator &amp; Leadership Consulting</h3>
+          <p>Executive coaching for principals and heads of school, leadership team development, strategic planning, faculty evaluation systems, and transition management.</p>
+          <a href="what-we-do.html#leadership" class="card-link">Learn more →</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="geo-strip">
+    <div class="container">
+      <div class="geo-inner">
+        <span class="geo-label">Geography</span>
+        <div class="geo-rule"></div>
+        <p class="geo-text">
+          <strong>Based in Asia. Available worldwide.</strong> Productive Logic's primary focus is international K–12 schools across Asia — the region where Dr. Gerhard has spent 26 years building, leading, and advising schools. Engagements in other regions are available on request, and remote consulting is available globally.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <section class="why-strip">
+    <div class="container">
+      <div class="why-inner">
+        <div class="why-text">
+          <span class="section-label">Why Productive Logic</span>
+          <h2>Experience That Has Held Every Seat at the Table</h2>
+          <p>
+            Most consultants advise schools from the outside. Dr. Jim Gerhard has been inside — as a classroom teacher, school principal, curriculum coordinator, professional development leader, university instructor, and WASC visiting team chair. Productive Logic offers the perspective of someone who has personally navigated every challenge it now helps schools solve.
+          </p>
+          <ul class="why-credentials">
+            <li>26 years as teacher, principal, and curriculum coordinator in international K–12 schools across Asia</li>
+            <li>WASC Visiting Team Leader — multiple international schools across Asia</li>
+            <li>Dual master's degrees in Curriculum &amp; Instruction and School Administration &amp; Supervision</li>
+            <li>New York State certified Teacher, Principal, and School Superintendent</li>
+            <li>University-level instructor in education leadership and curriculum</li>
+            <li>School startup experience across all phases — planning through accreditation</li>
+          </ul>
+          <a href="contact.html" class="btn btn-primary" style="margin-top:1.8rem;">Work With Us</a>
+        </div>
+        <div class="why-pull">
+          <blockquote>
+            "Effective professional development does not happen to teachers — it happens with them. The goal is always a shift in practice, not a shift in mood."
+          </blockquote>
+          <cite>— Dr. Jim Gerhard, Productive Logic</cite>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-banner">
+    <div class="container">
+      <h2>Ready to Talk About Your School?</h2>
+      <p>Whether you are launching a new school, preparing for WASC, planning your next in-service day, or hosting a regional conference — Productive Logic is built for exactly this work.</p>
+      <a href="contact.html" class="btn btn-primary">Get in Touch</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-logo">Productive Logic LLC</div>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="what-we-do.html">What We Do</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <p class="footer-copy">© 2026 Productive Logic LLC · ceo@productivelogic.co · Based in Asia. Available Worldwide.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

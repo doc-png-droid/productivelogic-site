@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — Productive Logic</title>
+  <meta name="description" content="Contact Productive Logic to discuss school startup consulting, WASC accreditation, professional development, conference hosting, or leadership consulting for your international school." />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .page-hero {
+      background: var(--warm-bg);
+      padding: 5rem 0 4rem;
+      border-bottom: 1px solid var(--rule);
+    }
+    .page-hero h1 { margin-bottom: 1rem; }
+    .page-hero p  { font-size: 1.05rem; max-width: 58ch; }
+
+    .contact-section { padding: 5rem 0; }
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 6rem;
+      align-items: start;
+    }
+
+    .contact-info h2 { font-size: 1.8rem; margin-bottom: 1rem; }
+    .contact-info > p { font-size: 0.92rem; line-height: 1.75; margin-bottom: 2.5rem; }
+
+    .contact-block { margin-bottom: 2rem; }
+    .contact-block-label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: block;
+      margin-bottom: 0.4rem;
+    }
+    .contact-block a, .contact-block p {
+      font-size: 0.95rem;
+      color: var(--ink);
+      font-weight: 500;
+    }
+    .contact-block a:hover { color: var(--accent); }
+
+    .availability-box {
+      background: var(--warm-bg);
+      border: 1px solid var(--rule);
+      padding: 1.5rem;
+      border-radius: 3px;
+      margin-top: 2.5rem;
+    }
+    .availability-box h4 {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+    }
+    .availability-box ul { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+    .availability-box li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      font-size: 0.87rem;
+      color: var(--slate);
+    }
+    .availability-box li::before {
+      content: '';
+      flex-shrink: 0;
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: var(--accent);
+      margin-top: 0.6rem;
+    }
+
+    .contact-form-wrap {
+      background: var(--white);
+      border: 1px solid var(--rule);
+      border-radius: 4px;
+      padding: 2.5rem;
+    }
+    .contact-form-wrap h3 { font-size: 1.4rem; margin-bottom: 0.6rem; }
+    .contact-form-wrap > p { font-size: 0.92rem; color: var(--slate); margin-bottom: 2rem; line-height: 1.7; }
+
+    .direct-contact-block {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      border: 1px solid var(--rule);
+      border-radius: 3px;
+      overflow: hidden;
+      margin-bottom: 2rem;
+    }
+    .direct-contact-item { padding: 1.6rem; }
+    .direct-contact-item:first-child { background: var(--warm-bg); }
+    .direct-contact-divider { height: 1px; background: var(--rule); }
+    .direct-email {
+      display: block;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--accent);
+      margin: 0.3rem 0 0.5rem;
+      transition: color 0.2s;
+      word-break: break-all;
+    }
+    .direct-email:hover { color: var(--accent-lt); }
+    .direct-note { font-size: 0.83rem; color: var(--slate); margin: 0; }
+
+    .what-to-include {
+      background: var(--warm-bg);
+      border: 1px solid var(--rule);
+      padding: 1.4rem;
+      border-radius: 3px;
+      margin-bottom: 1.5rem;
+    }
+    .what-to-include h4 {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+    }
+    .what-to-include ul { list-style: none; display: flex; flex-direction: column; gap: 0.45rem; }
+    .what-to-include li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.7rem;
+      font-size: 0.87rem;
+      color: var(--slate);
+    }
+    .what-to-include li::before {
+      content: '';
+      flex-shrink: 0;
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: var(--gold);
+      margin-top: 0.58rem;
+    }
+
+    .response-note {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.8rem;
+      color: var(--mid);
+    }
+    .response-note svg { flex-shrink: 0; color: var(--accent); }
+
+    /* About strip */
+    .about-strip {
+      background: var(--warm-bg);
+      padding: 5rem 0;
+      border-top: 1px solid var(--rule);
+    }
+    .about-inner {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+    .about-avatar {
+      width: 180px; height: 180px;
+      border-radius: 50%;
+      background: var(--rule);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      border: 3px solid var(--white);
+      box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+    }
+    .about-avatar-initials {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3rem;
+      font-weight: 600;
+      color: var(--accent);
+    }
+    .about-text h2 { margin-bottom: 0.8rem; }
+    .about-text p  { font-size: 0.92rem; line-height: 1.75; margin-bottom: 0.75rem; }
+    .credential-pills { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.2rem; }
+    .pill {
+      background: var(--white);
+      border: 1px solid var(--rule);
+      color: var(--slate);
+      font-size: 0.73rem;
+      font-weight: 500;
+      padding: 0.32rem 0.75rem;
+      border-radius: 100px;
+    }
+
+    @media (max-width: 768px) {
+      .contact-layout { grid-template-columns: 1fr; gap: 3rem; }
+      .about-inner { grid-template-columns: 1fr; gap: 2rem; }
+      .about-avatar { width: 120px; height: 120px; }
+      .about-avatar-initials { font-size: 2rem; }
+    }
+  </style>
+</head>
+<body class="page-body">
+
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">Productive<span>Logic</span></a>
+      <button class="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="what-we-do.html">What We Do</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
+        <li><a href="contact.html" class="nav-cta">Work With Us</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="page-hero">
+    <div class="container">
+      <span class="section-label">Get in Touch</span>
+      <h1>Contact Productive Logic</h1>
+      <p>Every engagement begins with a direct conversation. Whether you are launching a school, preparing for accreditation, planning a conference, or looking for ongoing leadership support — tell us what you need.</p>
+    </div>
+  </section>
+
+  <section class="contact-section">
+    <div class="container">
+      <div class="contact-layout">
+
+        <div class="contact-info">
+          <h2>Let's Start a Conversation</h2>
+          <p>Use the form to describe your school's situation and what you are looking for. Dr. Gerhard responds personally to all inquiries, typically within two business days.</p>
+
+          <div class="contact-block">
+            <span class="contact-block-label">Email</span>
+            <a href="mailto:ceo@productivelogic.co">ceo@productivelogic.co</a>
+          </div>
+          <div class="contact-block">
+            <span class="contact-block-label">Organization</span>
+            <p>Productive Logic LLC</p>
+          </div>
+          <div class="contact-block">
+            <span class="contact-block-label">Primary Region</span>
+            <p>International K–12 Schools — Asia</p>
+          </div>
+          <div class="contact-block">
+            <span class="contact-block-label">Global Availability</span>
+            <p>Remote consulting and select on-site engagements available worldwide</p>
+          </div>
+
+          <div class="availability-box">
+            <h4>Types of Engagements</h4>
+            <ul>
+              <li>School startup consulting — founding through first accreditation</li>
+              <li>WASC self-study and visiting committee preparation</li>
+              <li>Curriculum design and skills-based assessment workshops</li>
+              <li>Single in-service day or multi-session PD series</li>
+              <li>Conference design, hosting, and keynote presentations</li>
+              <li>Executive coaching for principals and heads of school</li>
+              <li>Remote or on-site — flexible to your school's location and budget</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="contact-form-wrap">
+          <h3>Get in Touch</h3>
+          <p>Dr. Gerhard responds personally to all inquiries. Reach out directly by email and describe your school's situation — the more specific you are, the more useful the first conversation will be.</p>
+
+          <div class="direct-contact-block">
+            <div class="direct-contact-item">
+              <span class="contact-block-label">General Inquiries</span>
+              <a href="mailto:info@productivelogic.co" class="direct-email">info@productivelogic.co</a>
+              <p class="direct-note">For questions about services, availability, and general information.</p>
+            </div>
+            <div class="direct-contact-divider"></div>
+            <div class="direct-contact-item">
+              <span class="contact-block-label">Direct to Dr. Gerhard</span>
+              <a href="mailto:ceo@productivelogic.co" class="direct-email">ceo@productivelogic.co</a>
+              <p class="direct-note">For school startup consulting, accreditation partnerships, and leadership engagements.</p>
+            </div>
+          </div>
+
+          <div class="what-to-include">
+            <h4>What to Include in Your Email</h4>
+            <ul>
+              <li>Your name, role, and school name and location</li>
+              <li>The service area you are interested in</li>
+              <li>A brief description of your school's current situation or challenge</li>
+              <li>Your approximate timeline or target dates</li>
+            </ul>
+          </div>
+
+          <div class="response-note">
+            <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            Dr. Gerhard responds personally within two business days.
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="about-strip">
+    <div class="container">
+      <div class="about-inner">
+        <div class="about-avatar">
+          <span class="about-avatar-initials">JG</span>
+        </div>
+        <div class="about-text">
+          <span class="section-label">About Dr. Gerhard</span>
+          <h2>26 Years Inside International Schools</h2>
+          <p>
+            Dr. Jim Gerhard has worked in international education for 26 years as a classroom teacher, school principal, curriculum coordinator, and professional development consultant across Asia. He has led WASC visiting teams at multiple international schools, taught at the university level, and delivered in-service and conference presentations on instructional practice, curriculum design, school leadership, and the Science of Learning.
+          </p>
+          <p>
+            Dr. Gerhard holds two master's degrees — in Curriculum and Instruction and in School Administration and Supervision — and is certified as a teacher, principal, and school superintendent in New York State. His experience spans school startup consulting, administrator coaching, accreditation leadership, and full-scale professional development design across elementary, middle, and high school divisions.
+          </p>
+          <p>
+            Productive Logic reflects a straightforward premise: the most useful consulting comes from someone who has personally held every role they are advising on — and who measures success by what changes in classrooms and schools, not by client satisfaction surveys.
+          </p>
+          <div class="credential-pills">
+            <span class="pill">Ed.D.</span>
+            <span class="pill">M.S. Curriculum &amp; Instruction</span>
+            <span class="pill">M.S. School Administration</span>
+            <span class="pill">NYS Superintendent Certified</span>
+            <span class="pill">NYS Principal Certified</span>
+            <span class="pill">WASC Team Leader — Asia</span>
+            <span class="pill">26 Years International Education</span>
+            <span class="pill">K–12 All Divisions</span>
+            <span class="pill">University Instructor</span>
+            <span class="pill">School Startup Consulting</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-logo">Productive Logic LLC</div>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="what-we-do.html">What We Do</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <p class="footer-copy">© 2026 Productive Logic LLC · ceo@productivelogic.co · Based in Asia. Available Worldwide.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

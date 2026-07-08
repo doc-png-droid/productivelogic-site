@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>What We Do — Productive Logic</title>
+  <meta name="description" content="Six service areas for international K–12 schools: school startup consulting, WASC accreditation, curriculum and assessment design, professional development, conference hosting, and leadership consulting." />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .page-hero {
+      background: var(--warm-bg);
+      padding: 5rem 0 4rem;
+      border-bottom: 1px solid var(--rule);
+    }
+    .page-hero h1 { margin-bottom: 1rem; }
+    .page-hero p  { font-size: 1.05rem; max-width: 62ch; }
+
+    /* ── Jump Nav ── */
+    .jump-nav {
+      background: var(--white);
+      border-bottom: 1px solid var(--rule);
+      position: sticky;
+      top: 68px;
+      z-index: 90;
+    }
+    .jump-nav-inner {
+      display: flex;
+      gap: 0;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .jump-nav-inner::-webkit-scrollbar { display: none; }
+    .jump-link {
+      flex-shrink: 0;
+      padding: 1rem 1.4rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--slate);
+      border-bottom: 2px solid transparent;
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+    .jump-link:hover { color: var(--accent); border-bottom-color: var(--accent); }
+
+    /* ── Service Sections ── */
+    .service-section { padding: 5.5rem 0; border-bottom: 1px solid var(--rule); }
+    .service-section.alt { background: var(--warm-bg); }
+
+    .service-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.7fr;
+      gap: 5rem;
+      align-items: start;
+    }
+    .service-sidebar { position: sticky; top: 130px; }
+    .service-number {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 5rem;
+      font-weight: 600;
+      color: var(--rule);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+    .service-sidebar h2 { color: var(--ink); margin-bottom: 1rem; }
+    .service-sidebar p  { font-size: 0.9rem; line-height: 1.7; }
+
+    .service-detail h3 {
+      font-size: 1rem;
+      color: var(--ink);
+      margin: 2rem 0 0.5rem;
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+    .service-detail h3:first-child { margin-top: 0; }
+    .service-detail p { font-size: 0.91rem; margin-bottom: 0.5rem; }
+    .service-detail ul {
+      list-style: none;
+      margin: 0.75rem 0 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .service-detail ul li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      font-size: 0.89rem;
+      color: var(--slate);
+    }
+    .service-detail ul li::before {
+      content: '';
+      flex-shrink: 0;
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: var(--accent);
+      margin-top: 0.6rem;
+    }
+    .service-tag {
+      display: inline-block;
+      background: var(--gold-lt);
+      color: var(--gold);
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.28rem 0.65rem;
+      border-radius: 2px;
+      margin-bottom: 0.5rem;
+    }
+    .delivery-box {
+      background: var(--white);
+      border: 1px solid var(--rule);
+      border-left: 3px solid var(--accent);
+      padding: 1.4rem;
+      margin-top: 2rem;
+      border-radius: 0 3px 3px 0;
+    }
+    .delivery-box h4 {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.55rem;
+    }
+    .delivery-box p { font-size: 0.86rem; margin: 0; }
+
+    /* ── Bottom CTA ── */
+    .bottom-cta { background: var(--accent); padding: 5rem 0; text-align: center; }
+    .bottom-cta h2 { color: var(--white); margin-bottom: 1rem; }
+    .bottom-cta p  { color: rgba(255,255,255,0.75); margin: 0 auto 2rem; }
+    .btn-white { background: var(--white); color: var(--accent); font-weight: 700; }
+    .btn-white:hover { background: var(--warm-bg); }
+
+    @media (max-width: 768px) {
+      .service-layout { grid-template-columns: 1fr; gap: 2rem; }
+      .service-sidebar { position: static; }
+      .service-number { font-size: 3rem; }
+    }
+  </style>
+</head>
+<body class="page-body">
+
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">Productive<span>Logic</span></a>
+      <button class="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="what-we-do.html" class="active">What We Do</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="contact.html" class="nav-cta">Work With Us</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="page-hero">
+    <div class="container">
+      <span class="section-label">Services</span>
+      <h1>What We Do</h1>
+      <p>Six interconnected areas of practice covering every stage of an international school's development — from founding through sustained excellence. All grounded in 26 years of real experience inside international K–12 schools across Asia.</p>
+    </div>
+  </section>
+
+  <div class="jump-nav">
+    <div class="container">
+      <div class="jump-nav-inner">
+        <a href="#startup"     class="jump-link">School Startup</a>
+        <a href="#wasc"        class="jump-link">WASC Accreditation</a>
+        <a href="#curriculum"  class="jump-link">Curriculum &amp; Assessment</a>
+        <a href="#pd"          class="jump-link">Professional Development</a>
+        <a href="#conferences" class="jump-link">Conference Hosting</a>
+        <a href="#leadership"  class="jump-link">Leadership Consulting</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 01 SCHOOL STARTUP -->
+  <section class="service-section" id="startup">
+    <div class="container">
+      <div class="service-layout">
+        <div class="service-sidebar">
+          <span class="service-number">01</span>
+          <span class="section-label">Founding &amp; Launch</span>
+          <h2>School Startup Consulting</h2>
+          <p>Launching an international school is one of the most complex organizational undertakings in education. Most founding teams have vision and funding but lack the operational and pedagogical expertise to build a school that actually works from day one. Productive Logic fills that gap.</p>
+        </div>
+        <div class="service-detail">
+          <span class="service-tag">Who This Is For</span>
+          <p>Founding boards, investors, education entrepreneurs, and leadership teams building new international K–12 schools in Asia or other regions.</p>
+
+          <h3>Feasibility &amp; Planning</h3>
+          <p>Honest assessment of whether a proposed school model is viable — market positioning, enrollment projections, facility requirements, staffing models, and financial sustainability analysis from an educator's perspective, not just a business consultant's.</p>
+
+          <h3>Organizational Structure Design</h3>
+          <p>Building the administrative and governance structure from scratch — roles, reporting lines, board relationships, division leadership, and the decision-making frameworks that prevent organizational chaos in year one and two.</p>
+
+          <h3>Curriculum Framework Development</h3>
+          <p>Designing the school's curriculum philosophy and framework before a single teacher is hired — scope and sequence, standards alignment, assessment philosophy, and the coherent instructional vision that should underpin every hiring and programming decision.</p>
+
+          <h3>Accreditation Pathway Planning</h3>
+          <p>Mapping the accreditation strategy from founding — what standards to align to from the beginning, what documentation to maintain, and how to build a school that will earn WASC or other accreditation through genuine quality rather than retroactive compliance theater.</p>
+
+          <h3>Hiring &amp; Onboarding Systems</h3>
+          <p>Developing hiring criteria, interview frameworks, compensation structures, and onboarding systems for international teacher recruitment — including the specifics of visa, housing, and relocation logistics that derail new schools when handled poorly.</p>
+
+          <ul>
+            <li>Experience building and leading international schools from the ground up</li>
+            <li>Knowledge of regulatory and legal requirements across Asian jurisdictions</li>
+            <li>Curriculum design that is accreditation-ready from day one</li>
+            <li>On-site and remote consulting available throughout the founding process</li>
+            <li>Ongoing advisory relationship available through first accreditation cycle</li>
+          </ul>
+
+          <div class="delivery-box">
+            <h4>Delivery Format</h4>
+            <p>Phased consulting engagement from pre-founding through first full year of operation. Includes on-site planning sessions, written framework deliverables, leadership coaching, and remote advisory support. Scoped to founding timeline.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 02 WASC -->
+  <section class="service-section alt" id="wasc">
+    <div class="container">
+      <div class="service-layout">
+        <div class="service-sidebar">
+          <span class="service-number">02</span>
+          <span class="section-label">Accreditation</span>
+          <h2>WASC Accreditation Consulting</h2>
+          <p>WASC accreditation is high-stakes, documentation-heavy, and genuinely difficult to navigate without someone who has been on both sides of the process. Productive Logic has chaired visiting teams across Asia and knows exactly what evaluators look for — and what they do not.</p>
+        </div>
+        <div class="service-detail">
+          <span class="service-tag">Who This Is For</span>
+          <p>International school administrators, academic leadership teams, and self-study coordinators preparing for initial WASC accreditation or renewal visits.</p>
+
+          <h3>Self-Study Support</h3>
+          <p>Structured guidance through the entire WASC self-study process — organizing evidence, aligning documentation to criteria, facilitating faculty-wide input, and building a self-study report that accurately and compellingly represents your school's actual practice.</p>
+
+          <h3>Visiting Committee Preparation</h3>
+          <p>Realistic, detailed preparation for the visiting committee experience — what to expect each day, how to present your school's work credibly, how to facilitate focus group conversations, and how to respond to committee findings constructively rather than defensively.</p>
+
+          <h3>Post-Visit Action Planning</h3>
+          <p>Translating visiting committee recommendations into a realistic, measurable multi-year action plan — one that satisfies WASC's follow-up requirements and actually moves the school forward rather than generating paperwork for its own sake.</p>
+
+          <h3>New School Accreditation Strategy</h3>
+          <p>For schools in their founding or early operational phase, building an accreditation strategy from the beginning — so that first accreditation is an affirmation of genuine quality rather than a scramble to document what should have been documented years earlier.</p>
+
+          <ul>
+            <li>Experience as Visiting Team Chair for multiple international schools across Asia</li>
+            <li>Familiarity with WASC criteria across elementary, middle, and high school divisions</li>
+            <li>On-site and remote consulting available throughout the accreditation cycle</li>
+            <li>Document review and written feedback on self-study drafts</li>
+            <li>Neutral outside perspective that strengthens self-study credibility with evaluators</li>
+          </ul>
+
+          <div class="delivery-box">
+            <h4>Delivery Format</h4>
+            <p>On-site workshops, remote consulting sessions, written document review, and full-day leadership intensives. Engagements scoped to your accreditation timeline and cycle — from 6-month pre-visit intensives to multi-year advisory relationships.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 CURRICULUM -->
+  <section class="service-section" id="curriculum">
+    <div class="container">
+      <div class="service-layout">
+        <div class="service-sidebar">
+          <span class="service-number">03</span>
+          <span class="section-label">Curriculum &amp; Assessment</span>
+          <h2>Curriculum Design &amp; Skills-Based Assessment</h2>
+          <p>International schools are moving rapidly away from traditional point-and-percentage grading toward skills-based, competency-driven frameworks. Most schools want to make this shift. Few have a clear, practical path for getting there without fracturing faculty confidence in the process.</p>
+        </div>
+        <div class="service-detail">
+          <span class="service-tag">Who This Is For</span>
+          <p>Curriculum coordinators, division heads, and faculty teams redesigning curriculum and assessment systems for K–12 international schools.</p>
+
+          <h3>Skills-Based Assessment Framework Design</h3>
+          <p>Building a school-wide or division-wide skills-based assessment framework — defining skill strands, proficiency descriptors, and reporting structures that are coherent, defensible, and actually usable by classroom teachers without constant administrative interpretation.</p>
+
+          <h3>Curriculum Mapping &amp; Alignment</h3>
+          <p>Mapping existing curriculum units to skills frameworks and standards, identifying coverage gaps and unnecessary redundancy, and supporting teachers in redesigning units and assessments that are genuinely aligned to stated learning goals.</p>
+
+          <h3>Science of Learning Workshops</h3>
+          <p>Evidence-based professional development connecting the most robust findings in cognitive science — retrieval practice, spaced repetition, interleaving, metacognition, desirable difficulties — directly to classroom instructional practice. Every session moves from research to implementation, with specific strategies teachers can use the following week.</p>
+
+          <h3>Faculty Workshop Series</h3>
+          <p>Structured professional development for teaching teams on writing skills-aligned learning targets, designing assessments that measure genuine competency, and grading practices that communicate meaningful information to students and families rather than averaging compliance with averaging performance.</p>
+
+          <ul>
+            <li>Experience across IB, American, and hybrid international curriculum frameworks</li>
+            <li>Practical focus on what teachers can implement — not theoretical models that collapse under classroom conditions</li>
+            <li>Division-specific design for elementary, middle, and high school separately or combined</li>
+            <li>Support for parent communication strategy during framework transitions</li>
+            <li>University teaching background informing research-to-practice translation</li>
+          </ul>
+
+          <div class="delivery-box">
+            <h4>Delivery Format</h4>
+            <p>Half-day or full-day faculty workshops, multi-session series across a semester, leadership design sessions, and written framework documentation. Available on-site or remotely. Suitable for curriculum teams of 5 to full faculty of 100+.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 PD -->
+  <section class="service-section alt" id="pd">
+    <div class="container">
+      <div class="service-layout">
+        <div class="service-sidebar">
+          <span class="service-number">04</span>
+          <span class="section-label">Faculty Development</span>
+          <h2>Professional Development &amp; In-Service Presentations</h2>
+          <p>Generic professional development is one of the most expensive things a school can waste money on. Productive Logic designs and delivers PD that is specific to international school faculties, grounded in evidence, and built to produce visible changes in instructional practice — not just positive survey responses.</p>
+        </div>
+        <div class="service-detail">
+          <span class="service-tag">Who This Is For</span>
+          <p>International school principals, academic directors, and faculty at any K–12 level seeking evidence-based, practically focused professional development.</p>
+
+          <h3>In-Service Day Presentations</h3>
+          <p>Engaging, practical in-service sessions on high-impact instructional strategies — lesson design, questioning techniques, feedback practices, differentiated instruction, and classroom environment. Built for international school educators specifically, not repackaged corporate training adapted for schools.</p>
+
+          <h3>Instructional Delivery Coaching</h3>
+          <p>Direct coaching for faculty on the craft of teaching — observation and feedback cycles, lesson study, peer coaching protocols, and the specific high-leverage instructional moves that have the strongest evidence base across K–12 contexts.</p>
+
+          <h3>Multi-Session PD Series</h3>
+          <p>Sustained professional development across a semester or school year — designed to build genuine expertise rather than check an annual PD box. Includes follow-up, accountability, and integration with existing school improvement priorities.</p>
+
+          <h3>New Teacher Induction</h3>
+          <p>Structured onboarding professional development for teachers new to international school contexts — the cultural, pedagogical, and organizational dimensions of teaching effectively in an international school setting in Asia.</p>
+
+          <ul>
+            <li>26 years as teacher, principal, and curriculum coordinator — PD designed by someone who has sat in the audience and run the school</li>
+            <li>Presentations calibrated for elementary, middle, and high school separately</li>
+            <li>Available for single in-service days, week-long intensives, or year-long partnerships</li>
+            <li>Facilitation for groups from 10 to 300+ participants</li>
+            <li>Remote delivery available for schools with budget or travel constraints</li>
+          </ul>
+
+          <div class="delivery-box">
+            <h4>Delivery Format</h4>
+            <p>Single in-service day presentations, multi-session faculty learning series, week-long summer institutes, and ongoing instructional coaching partnerships. On-site across Asia or remote globally.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 05 CONFERENCES -->
+  <section class="service-section" id="conferences">
+    <div class="container">
+      <div class="service-layout">
+        <div class="service-sidebar">
+          <span class="service-number">05</span>
+          <span class="section-label">Events &amp; Conferences</span>
+          <h2>Conference Design, Hosting &amp; Presentation</h2>
+          <p>International school conferences are genuinely valuable when they are well-designed — and genuinely wasteful when they are not. Productive Logic both presents at conferences and helps schools design and host conferences on their own campuses that are worth attending.</p>
+        </div>
+        <div class="service-detail">
+          <span class="service-tag">Who This Is For</span>
+          <p>International school leadership teams, regional school associations, and professional learning communities across Asia and other regions seeking to host or improve educator conferences.</p>
+
+          <h3>Conference Design &amp; Programming</h3>
+          <p>Full-service design of conference programming — theme development, strand architecture, session sequencing, keynote selection, and the overall learning journey a conference should take participants through. Conferences designed around genuine learning objectives rather than prestige or logistics convenience.</p>
+
+          <h3>On-Campus Conference Hosting</h3>
+          <p>Support for international schools hosting regional or local conferences on their own campuses — from facility planning and schedule design to participant communication, session facilitation, and post-conference evaluation. Schools that host well-run conferences build regional reputation and faculty culture simultaneously.</p>
+
+          <h3>Keynote &amp; Breakout Presentations</h3>
+          <p>Conference presentations on instructional leadership, curriculum design, WASC accreditation, skills-based assessment, the Science of Learning, school startup, and international education leadership. Built for international school educator audiences, not adapted from other sectors.</p>
+
+          <h3>Regional Conference Consulting</h3>
+          <p>Advisory support for school associations and regional networks designing multi-school conferences across Asia — programming, speaker selection, facilitation frameworks, and the logistical infrastructure that separates a productive professional conference from a well-catered scheduling exercise.</p>
+
+          <ul>
+            <li>Experience presenting at and designing international school conferences across Asia</li>
+            <li>Available as keynote speaker, breakout facilitator, or full conference designer</li>
+            <li>On-site hosting support for campus-based conferences</li>
+            <li>Conference sizes from 20-person school in-service to 500+ regional events</li>
+            <li>Available across Asia and other regions by arrangement</li>
+          </ul>
+
+          <div class="delivery-box">
+            <h4>Delivery Format</h4>
+            <p>Single keynote appearances, multi-session conference presentations, full conference design engagements, and on-site hosting support. Scoped to event size, timeline, and school or association budget.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 06 LEADERSHIP -->
+  <section class="service-section alt" id="leadership">
+    <div class="container">
+      <div class="service-layout">
+        <div class="service-sidebar">
+          <span class="service-number">06</span>
+          <span class="section-label">Administrator Consulting</span>
+          <h2>Administrator &amp; Leadership Consulting</h2>
+          <p>International school leadership is a specific and demanding form of executive leadership that most generic coaching programs do not understand. Productive Logic works with administrators and leadership teams who need a thought partner who has actually held the job.</p>
+        </div>
+        <div class="service-detail">
+          <span class="service-tag">Who This Is For</span>
+          <p>Principals, heads of school, deputy heads, curriculum coordinators, and leadership teams at international K–12 schools in Asia and other regions.</p>
+
+          <h3>Executive Coaching for School Leaders</h3>
+          <p>One-on-one coaching for principals and heads of school — decision-making frameworks, leadership presence, faculty management, board relationships, and the specific pressures of leading an international school community in a foreign country. Coaching grounded in real administrative experience, not generic leadership theory.</p>
+
+          <h3>Leadership Team Development</h3>
+          <p>Structured development for school leadership teams — building alignment on instructional vision, clarifying roles and decision authority, improving meeting and communication culture, and developing the collective capacity to lead a school through change without fracturing the faculty.</p>
+
+          <h3>Strategic Planning Facilitation</h3>
+          <p>Facilitating school-wide strategic planning processes — mission and vision alignment, multi-year goal setting, priority sequencing, and the development of action plans that are specific enough to actually drive decisions rather than sit in a binder.</p>
+
+          <h3>Faculty Evaluation System Design</h3>
+          <p>Designing or redesigning teacher evaluation systems that are credible, legally defensible, and actually connected to instructional improvement — not observation checklists that protect administrators while doing nothing for teaching quality.</p>
+
+          <h3>Crisis &amp; Transition Management</h3>
+          <p>Advisory support for schools navigating leadership transitions, enrollment crises, community conflicts, or accreditation jeopardy — the situations where experienced outside counsel is most valuable and most often sought too late.</p>
+
+          <ul>
+            <li>26 years as teacher, principal, curriculum coordinator, and administrator in international schools</li>
+            <li>NYS certified Superintendent — formal training in school system leadership</li>
+            <li>Experience in leadership transitions and organizational restructuring</li>
+            <li>Coaching available remotely for administrators across Asia and globally</li>
+            <li>Confidential advisory relationship with no conflict of interest</li>
+          </ul>
+
+          <div class="delivery-box">
+            <h4>Delivery Format</h4>
+            <p>Monthly one-on-one coaching sessions, leadership team intensives, strategic planning facilitation days, and crisis advisory retainers. Remote and on-site. Engagements from single sessions to year-long advisory relationships.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bottom-cta">
+    <div class="container">
+      <h2>Let's Talk About What Your School Needs</h2>
+      <p>Every engagement starts with a direct conversation about where your school is and where you want it to go.</p>
+      <a href="contact.html" class="btn btn-white">Get in Touch</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-logo">Productive Logic LLC</div>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="what-we-do.html">What We Do</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <p class="footer-copy">© 2026 Productive Logic LLC · ceo@productivelogic.co · Based in Asia. Available Worldwide.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
